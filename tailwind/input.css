@@ -1,4 +1,7 @@
-@import "@fontsource-variable/google-sans-flex";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
 @import "tailwindcss";
 
 @source "../views/**/*.html";
@@ -37,8 +40,8 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  --font-sans: "Google Sans Flex Variable", "Google Sans Flex", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
@@ -50,6 +53,7 @@ body {
 /* Slight global bump — scales text-sm, text-base, headings, etc. */
 html {
   font-size: 106.25%;
+  font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer utilities {
@@ -147,6 +151,65 @@ html.js .fly-target.is-revealed {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Home hero only — animated backdrop above flat zinc-950 */
+.home-hero-motion {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.home-hero-rings {
+  position: absolute;
+  right: max(1%, 0.25rem);
+  top: 50%;
+  width: min(46vmin, 360px);
+  height: min(46vmin, 360px);
+  translate: 12% -50%;
+  opacity: 0.55;
+}
+
+@media (min-width: 1024px) {
+  .home-hero-rings {
+    translate: 4% -50%;
+    width: min(50vmin, 400px);
+    height: min(50vmin, 400px);
+  }
+}
+
+.home-hero-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(248, 113, 113, 0.55);
+  animation: home-hero-ring-spin 52s linear infinite;
+  will-change: transform;
+}
+
+.home-hero-ring--outer {
+  inset: 0;
+}
+
+.home-hero-ring--inner {
+  inset: 14%;
+  border-color: rgba(252, 165, 165, 0.4);
+  animation-duration: 34s;
+  animation-direction: reverse;
+}
+
+@keyframes home-hero-ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.home-hero-motion .hero-cyber-spiral--a {
+  opacity: 0.44;
+}
+.home-hero-motion .hero-cyber-spiral--b {
+  opacity: 0.32;
 }
 
 /* Home hero — subtle continuous “security ops” motion */
@@ -266,7 +329,8 @@ html.js .fly-target.is-revealed {
   .hero-cyber-dash path,
   .hero-cyber-nodes,
   .hero-cyber-ticker-track,
-  .hero-cyber-spiral {
+  .hero-cyber-spiral,
+  .home-hero-ring {
     animation: none !important;
   }
   .hero-cyber-blob {
@@ -276,5 +340,11 @@ html.js .fly-target.is-revealed {
   .hero-cyber-spiral--b {
     transform: rotate(18deg);
     opacity: 0.28;
+  }
+  .home-hero-ring--outer {
+    transform: rotate(14deg);
+  }
+  .home-hero-ring--inner {
+    transform: rotate(-20deg);
   }
 }

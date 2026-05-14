@@ -4,31 +4,33 @@
 <main class="bg-zinc-50">
   <%- include('partials/page-hero.html', { heroEyebrow: categoryTitle, heroTitle: service.title, heroLead: service.summary, heroImage: siteImages.networkAbstract, heroImageAlt: 'Network graph illustrating attack surface and defensive coverage' }) %>
 
-  <div class="relative border-b border-zinc-200 bg-white/95 backdrop-blur-sm">
-    <div class="container flex flex-wrap items-center justify-between gap-4 py-4">
+  <div class="border-b border-zinc-200 bg-white">
+    <div class="container py-4">
+      <div class="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-zinc-200 bg-zinc-50/80 px-4 py-3 md:px-5">
       <a href="/services" class="inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:text-red-800"><i data-feather="arrow-left" class="h-4 w-4"></i>All services</a>
       <span class="text-xs font-medium uppercase tracking-widest text-zinc-500"><%= categoryTitle %></span>
+      </div>
     </div>
   </div>
 
-  <section class="border-b border-zinc-200 bg-white py-10 md:py-12">
+  <section class="border-b border-zinc-200 bg-white py-10 md:py-14">
     <div class="container">
-      <div class="grid gap-6 lg:grid-cols-3">
-        <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
+      <div class="grid gap-6 md:grid-cols-3 md:gap-8">
+        <div class="flex h-full flex-col rounded-2xl border border-zinc-200 bg-zinc-50 p-6 md:p-7">
           <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-zinc-500">
             <i data-feather="target" class="h-4 w-4 text-primary/80"></i>
             Best for
           </p>
           <p class="mt-2 text-sm leading-relaxed text-zinc-700">Teams that need defensible outcomes for product launches, audits, or incident readiness—not a one-off scan disconnected from how you ship.</p>
         </div>
-        <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
+        <div class="flex h-full flex-col rounded-2xl border border-zinc-200 bg-zinc-50 p-6 md:p-7">
           <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-zinc-500">
             <i data-feather="repeat" class="h-4 w-4 text-primary/80"></i>
             Typical cadence
           </p>
           <p class="mt-2 text-sm leading-relaxed text-zinc-700">Kickoff and scope lock in week one; mid-engagement checkpoints; final readouts packaged separately for engineers and leadership.</p>
         </div>
-        <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
+        <div class="flex h-full flex-col rounded-2xl border border-zinc-200 bg-zinc-50 p-6 md:p-7">
           <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-zinc-500">
             <i data-feather="package" class="h-4 w-4 text-primary/80"></i>
             Outputs
@@ -39,38 +41,35 @@
     </div>
   </section>
 
-  <section class="relative min-h-[100px] overflow-hidden border-b border-zinc-200 md:min-h-[120px]">
-    <div class="pointer-events-none absolute inset-0 opacity-40">
-      <img src="<%= siteImages.cloudSecurity %>" alt="" class="h-full w-full object-cover object-center" loading="lazy" />
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-red-50/80"></div>
-  </section>
+  <div class="h-px bg-zinc-200" aria-hidden="true"></div>
 
-  <section class="border-b border-zinc-200 py-14 md:py-20">
+  <section class="border-b border-zinc-200 bg-zinc-50 py-14 md:py-20">
     <div class="container grid gap-12 lg:grid-cols-12">
       <div class="lg:col-span-7">
-        <h2 class="text-xl font-semibold text-zinc-900">Deliverables &amp; cadence</h2>
-        <p class="mt-2 text-sm text-zinc-600">Concrete artifacts and touchpoints your teams can plan around.</p>
-        <ul class="mt-8 space-y-4">
-          <% service.bullets.forEach(function (b) { %>
-          <li class="flex gap-4 rounded-xl border border-zinc-100 bg-white p-4 text-sm leading-relaxed text-zinc-700 shadow-sm">
-            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-50 text-primary">
-              <i data-feather="check" class="h-4 w-4"></i>
-            </span>
-            <span><%= b %></span>
-          </li>
-          <% }); %>
-        </ul>
-        <div class="mt-10 rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50 to-white p-6 text-sm leading-relaxed text-zinc-600 shadow-sm md:p-8">
-          <p class="font-medium text-zinc-800">Long-running engagements</p>
-          <p class="mt-2">Include standing checkpoints with your technical and risk owners, plus readouts sized for engineering standups and board briefings. We only recommend adjacent Nangsec services when they clearly reduce open risk.</p>
-        </div>
-        <div class="mt-10">
-          <p class="text-xs font-semibold uppercase tracking-widest text-zinc-500">Explore next</p>
-          <div class="mt-4 flex flex-wrap gap-3">
-            <a href="/training" class="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:border-red-200"><i data-feather="book-open" class="h-4 w-4 text-primary/90"></i>Training programs</a>
-            <a href="/research" class="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:border-red-200"><i data-feather="file-text" class="h-4 w-4 text-primary/90"></i>Research &amp; briefs</a>
-            <a href="/about" class="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:border-red-200"><i data-feather="users" class="h-4 w-4 text-primary/90"></i>About Nangsec</a>
+        <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm md:p-8">
+          <h2 class="text-xl font-semibold text-zinc-900">Deliverables &amp; cadence</h2>
+          <p class="mt-2 text-sm leading-relaxed text-zinc-600">Concrete artifacts and touchpoints your teams can plan around.</p>
+          <ul class="mt-8 space-y-4">
+            <% service.bullets.forEach(function (b) { %>
+            <li class="flex gap-4 rounded-xl border border-zinc-100 bg-zinc-50/80 p-4 text-sm leading-relaxed text-zinc-700">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-50 text-primary">
+                <i data-feather="check" class="h-4 w-4"></i>
+              </span>
+              <span><%= b %></span>
+            </li>
+            <% }); %>
+          </ul>
+          <div class="mt-10 rounded-xl border border-zinc-200 bg-gradient-to-br from-zinc-50 to-white p-6 text-sm leading-relaxed text-zinc-600 md:p-7">
+            <p class="font-medium text-zinc-800">Long-running engagements</p>
+            <p class="mt-2">Include standing checkpoints with your technical and risk owners, plus readouts sized for engineering standups and board briefings. We only recommend adjacent Nangsec services when they clearly reduce open risk.</p>
+          </div>
+          <div class="mt-10">
+            <p class="text-xs font-semibold uppercase tracking-widest text-zinc-500">Explore next</p>
+            <div class="mt-4 flex flex-wrap gap-3">
+              <a href="/training" class="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:border-red-200"><i data-feather="book-open" class="h-4 w-4 text-primary/90"></i>Training programs</a>
+              <a href="/research" class="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:border-red-200"><i data-feather="file-text" class="h-4 w-4 text-primary/90"></i>Research &amp; briefs</a>
+              <a href="/about" class="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:border-red-200"><i data-feather="users" class="h-4 w-4 text-primary/90"></i>About Nangsec</a>
+            </div>
           </div>
         </div>
       </div>

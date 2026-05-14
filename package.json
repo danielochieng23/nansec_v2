@@ -12,7 +12,7 @@
     "prestart": "npm run css"
   },
   "dependencies": {
-    "@fontsource-variable/google-sans-flex": "^5.2.3",
+    "@fontsource/poppins": "^5.2.7",
     "ejs": "^3.1.10",
     "express": "^5.1.0"
   },

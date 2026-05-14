@@ -54,4 +54,4 @@ PORT=8080 npm start
 
 ## Fonts
 
-[Google Sans Flex](https://fonts.google.com/) is loaded via `@fontsource-variable/google-sans-flex` in `tailwind/input.css`.
+[Poppins](https://fonts.google.com/specimen/Poppins) is loaded via `@fontsource/poppins` (weights 400–700) in `tailwind/input.css`.

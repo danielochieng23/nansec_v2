@@ -4,17 +4,18 @@
 <main class="bg-zinc-50">
   <%- include('partials/page-hero.html', { heroEyebrow: 'Services', heroTitle: title, heroLead: description, heroImage: siteImages.servicesHero, heroImageAlt: 'Abstract digital layers representing security assessment and defense depth' }) %>
 
-  <section class="relative border-b border-zinc-800 bg-zinc-950 py-14 md:py-16">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-20%,rgba(220,38,38,0.15),transparent_55%)]"></div>
-    <div class="relative container">
-      <p class="inline-flex items-center justify-center gap-2 text-center text-xs font-semibold uppercase tracking-[0.22em] text-red-400">
+  <section class="border-b border-zinc-900 bg-zinc-950 py-14 md:py-20">
+    <div class="container">
+      <div class="mx-auto max-w-3xl text-center">
+      <p class="inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-red-400">
         <i data-feather="users" class="h-4 w-4"></i>
         How we work with you
       </p>
-      <p class="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-zinc-400">Every engagement starts with scope, threat context, and success criteria you can measure. We align testing, monitoring, and advisory so findings roll into the same remediation rhythm—not disconnected PDFs.</p>
-      <div class="mt-10 grid gap-6 border-t border-white/10 pt-10 sm:grid-cols-3">
+      <p class="mt-4 text-sm leading-relaxed text-zinc-400 md:text-base">Every engagement starts with scope, threat context, and success criteria you can measure. We align testing, monitoring, and advisory so findings roll into the same remediation rhythm—not disconnected PDFs.</p>
+      </div>
+      <div class="mt-12 grid gap-6 border-t border-white/10 pt-12 sm:grid-cols-3">
         <% [{ t: "Named leads", d: "A single practice owner coordinates deliverables, dates, and readouts for technical and executive audiences.", icon: "user-check" },{ t: "Evidence you can reuse", d: "Artifacts map to controls, tickets, and audit requests so GRC and engineering share one backlog.", icon: "archive" },{ t: "Regional context", d: "Delivery across West and East Africa with playbooks tuned to regulators and sector norms you actually face.", icon: "globe" }].forEach(function (x) { %>
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:p-7">
           <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-red-500/20 text-red-200">
             <i data-feather="<%= x.icon %>" class="h-5 w-5"></i>
           </div>
@@ -47,9 +48,9 @@
       </div>
       <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-2">
         <% cat.items.forEach(function (s, si) { %>
-        <article class="group relative flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-red-200 hover:shadow-md">
+        <article class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-red-200 hover:shadow-md">
           <div class="flex items-start justify-between gap-4 border-b border-zinc-100 bg-zinc-50/80 px-7 py-4 md:px-8">
-            <span class="inline-flex items-center gap-2 font-mono text-xs text-zinc-400"><i data-feather="hash" class="h-3.5 w-3.5"></i><%= String(si + 1).padStart(2, '0') %></span>
+            <span class="inline-flex items-center gap-2 text-xs tabular-nums text-zinc-400"><i data-feather="hash" class="h-3.5 w-3.5"></i><%= String(si + 1).padStart(2, '0') %></span>
             <i data-feather="box" class="h-5 w-5 text-zinc-300 transition group-hover:text-primary"></i>
           </div>
           <div class="flex flex-1 flex-col p-7 md:p-8 md:pt-6">
@@ -62,7 +63,7 @@
           </ul>
           <div class="mt-8 flex flex-wrap gap-4 border-t border-zinc-100 pt-6 text-sm font-semibold">
             <a href="/services/<%= s.slug %>" class="inline-flex items-center gap-1.5 text-primary transition group-hover:gap-2"><i data-feather="arrow-right" class="h-4 w-4"></i>View details</a>
-            <a href="/contact" class="inline-flex items-center gap-1.5 text-zinc-500 hover:text-primary"><i data-feather="phone" class="h-4 w-4"></i>Schedule a call</a>
+            <a href="/contact" class="inline-flex items-center gap-1.5 text-zinc-500 hover:text-primary"><i data-feather="message-circle" class="h-4 w-4"></i>Contact</a>
           </div>
           </div>
         </article>
@@ -86,12 +87,12 @@
           <li class="flex gap-2"><i data-feather="check" class="mt-0.5 h-4 w-4 shrink-0 text-primary"></i>Shared ticketing and evidence hooks for ISO, SOC 2, and NDPR-style reviews</li>
         </ul>
       </div>
-      <div class="rounded-2xl border border-red-100 bg-white p-8 shadow-sm lg:col-span-5">
+      <div class="rounded-2xl border border-red-100 bg-white p-8 shadow-sm lg:col-span-5 md:p-9">
         <div class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-primary">
           <i data-feather="calendar" class="h-6 w-6"></i>
         </div>
         <p class="mt-4 text-sm font-medium text-zinc-900">Talk through your estate and constraints—we will map a first milestone in one call.</p>
-        <a href="/contact" class="btn-primary mt-6 inline-flex w-full justify-center gap-2 sm:w-auto"><i data-feather="phone-call" class="h-4 w-4"></i>Plan a scoping call</a>
+        <a href="/contact" class="btn-primary mt-6 inline-flex w-full justify-center gap-2 sm:w-auto"><i data-feather="message-circle" class="h-4 w-4"></i>Contact us</a>
       </div>
     </div>
   </section>

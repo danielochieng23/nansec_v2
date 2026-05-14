@@ -6,56 +6,65 @@
 <% var _hl = typeof heroLead !== 'undefined' ? heroLead : (typeof description !== 'undefined' ? description : ''); %>
 
 <% if (_darkImg) { %>
-<section class="relative flex min-h-[min(52vh,520px)] flex-col justify-center overflow-hidden border-b border-black bg-black">
-  <div class="absolute inset-0 z-0">
-    <img src="<%= heroImage %>" alt="<%= heroImageAlt || '' %>" class="absolute inset-0 h-full w-full object-cover object-center" <%= typeof heroPriority !== 'undefined' && heroPriority ? 'fetchpriority="high"' : '' %> />
-    <div class="absolute inset-0 bg-black/90"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-zinc-950/75 to-black/70"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_70%_18%,rgba(220,38,38,0.1),transparent_58%)]"></div>
+<section class="relative flex min-h-[min(52vh,520px)] flex-col justify-center overflow-hidden border-b border-zinc-900 bg-zinc-950">
+  <div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+    <img src="<%= heroImage %>" alt="<%= heroImageAlt || '' %>" class="absolute inset-0 h-full w-full object-cover object-center opacity-[0.2]" <%= typeof heroPriority !== 'undefined' && heroPriority ? 'fetchpriority="high"' : '' %> />
+    <div class="absolute inset-0 bg-zinc-950/96"></div>
   </div>
-  <%- include('./hero-cyber-backdrop.html') %>
   <div class="relative z-10 container py-14 md:py-20">
-    <% if (typeof heroEyebrow !== 'undefined' && heroEyebrow) { %>
-    <p class="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-red-400/95"><i data-feather="compass" class="h-4 w-4 shrink-0"></i><%= heroEyebrow %></p>
-    <% } %>
-    <h1 class="max-w-4xl text-3xl font-semibold tracking-tight text-white md:text-5xl"><%= _ht %></h1>
-    <% if (_hl) { %>
-    <p class="mt-4 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg"><%= _hl %></p>
-    <% } %>
+    <div class="max-w-4xl">
+      <% if (typeof heroEyebrow !== 'undefined' && heroEyebrow) { %>
+      <p class="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-red-400">
+        <i data-feather="compass" class="h-4 w-4 shrink-0"></i><%= heroEyebrow %>
+      </p>
+      <% } %>
+      <h1 class="text-balance text-3xl font-semibold tracking-tight text-white md:text-5xl"><%= _ht %></h1>
+      <% if (_hl) { %>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg"><%= _hl %></p>
+      <% } %>
+    </div>
   </div>
 </section>
 <% } else if (_hasImg) { %>
-<section class="relative overflow-hidden border-b border-zinc-200">
-  <div class="absolute inset-0 z-0">
+<section class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50">
+  <div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
     <img src="<%= heroImage %>" alt="<%= heroImageAlt || '' %>" class="h-full w-full object-cover object-center" <%= typeof heroPriority !== 'undefined' && heroPriority ? 'fetchpriority="high"' : '' %> />
-    <div class="absolute inset-0 bg-gradient-to-br from-white/93 via-zinc-50/96 to-zinc-100/93"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-white/95 via-zinc-50/98 to-white/95"></div>
   </div>
   <div class="relative z-10 container py-14 md:py-20">
-    <% if (typeof heroEyebrow !== 'undefined' && heroEyebrow) { %>
-    <p class="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary"><i data-feather="compass" class="h-4 w-4 shrink-0"></i><%= heroEyebrow %></p>
-    <% } %>
-    <h1 class="max-w-4xl text-3xl font-semibold tracking-tight text-zinc-900 md:text-5xl"><%= _ht %></h1>
-    <% if (_hl) { %>
-    <p class="mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 md:text-lg"><%= _hl %></p>
-    <% } %>
+    <div class="max-w-4xl">
+      <% if (typeof heroEyebrow !== 'undefined' && heroEyebrow) { %>
+      <p class="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+        <i data-feather="compass" class="h-4 w-4 shrink-0"></i><%= heroEyebrow %>
+      </p>
+      <% } %>
+      <h1 class="text-balance text-3xl font-semibold tracking-tight text-zinc-900 md:text-5xl"><%= _ht %></h1>
+      <% if (_hl) { %>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 md:text-lg"><%= _hl %></p>
+      <% } %>
+    </div>
   </div>
 </section>
 <% } else { %>
 <% var _h1 = _dark ? 'text-white' : 'text-zinc-900'; var _p = _dark ? 'text-zinc-400' : 'text-zinc-600'; %>
-<section class="relative overflow-hidden border-b border-zinc-200 <%= _dark ? 'border-zinc-800 bg-gradient-to-b from-zinc-900 to-zinc-950' : 'border-zinc-200 bg-gradient-to-br from-white via-zinc-50 to-zinc-100' %>">
+<section class="relative overflow-hidden border-b <%= _dark ? 'border-zinc-800 bg-zinc-950' : 'border-zinc-200 bg-zinc-50' %>">
   <% if (!_dark) { %>
-  <div class="pointer-events-none absolute inset-0 opacity-60" style="background-image: radial-gradient(circle at 15% 20%, rgba(220,38,38,0.08) 0%, transparent 42%), radial-gradient(circle at 90% 10%, rgba(220,38,38,0.06) 0%, transparent 38%);"></div>
+  <div class="pointer-events-none absolute inset-0 opacity-50" aria-hidden="true" style="background-image: radial-gradient(circle at 12% 18%, rgba(220,38,38,0.07) 0%, transparent 40%), radial-gradient(circle at 92% 8%, rgba(220,38,38,0.05) 0%, transparent 36%);"></div>
   <% } else { %>
-  <div class="pointer-events-none absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 20% 20%, rgba(248,113,113,0.35) 0%, transparent 45%), radial-gradient(circle at 85% 10%, rgba(248,113,113,0.2) 0%, transparent 35%);"></div>
+  <div class="pointer-events-none absolute inset-0 opacity-30" aria-hidden="true" style="background-image: radial-gradient(ellipse 100% 60% at 20% 0%, rgba(220,38,38,0.14), transparent 55%);"></div>
   <% } %>
   <div class="relative z-10 container py-14 md:py-20">
-    <% if (typeof heroEyebrow !== 'undefined' && heroEyebrow) { %>
-    <p class="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary"><i data-feather="compass" class="h-4 w-4 shrink-0"></i><%= heroEyebrow %></p>
-    <% } %>
-    <h1 class="max-w-4xl text-3xl font-semibold tracking-tight md:text-5xl <%= _h1 %>"><%= _ht %></h1>
-    <% if (_hl) { %>
-    <p class="mt-4 max-w-2xl text-base leading-relaxed md:text-lg <%= _p %>"><%= _hl %></p>
-    <% } %>
+    <div class="max-w-4xl">
+      <% if (typeof heroEyebrow !== 'undefined' && heroEyebrow) { %>
+      <p class="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+        <i data-feather="compass" class="h-4 w-4 shrink-0"></i><%= heroEyebrow %>
+      </p>
+      <% } %>
+      <h1 class="text-balance text-3xl font-semibold tracking-tight md:text-5xl <%= _h1 %>"><%= _ht %></h1>
+      <% if (_hl) { %>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed md:text-lg <%= _p %>"><%= _hl %></p>
+      <% } %>
+    </div>
   </div>
 </section>
 <% } %>
