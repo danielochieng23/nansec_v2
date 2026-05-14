@@ -20,7 +20,5 @@ export const siteImages = {
     "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=82",
   servicesHero:
     "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=2400&q=82",
-  partnerAshwa: "/images/partners/ashwa.png",
-  partnerEsonga: "/images/partners/esonga.png",
-  partnerSsdIt: "/images/partners/ssd-it.png",
+  leadershipManagingDirector: "/images/leadership-managing-director.png",
 };
