@@ -16,11 +16,11 @@
           <p class="mt-4 text-sm leading-relaxed text-zinc-600">We pair local context with methods borrowed from global finance, cloud-native builders, and critical infrastructure—then tune delivery to how your teams actually ship.</p>
         </div>
         <div class="grid grid-cols-2 gap-4 lg:max-w-lg">
-          <% [{ n: "3", l: "Hub cities for delivery & training", icon: "map-pin" },{ n: "120+", l: "Assessments & remediation programs completed", icon: "bar-chart-2" },{ n: "35+", l: "Long-running client relationships", icon: "users" },{ n: '<1h', l: "P1 acknowledgement target on retainer", icon: "zap" }].forEach(function (s) { %>
+          <% [{ count: 3, suffix: "", l: "Hub cities for delivery & training", icon: "map-pin" },{ count: 120, suffix: "+", l: "Assessments & remediation programs completed", icon: "bar-chart-2" },{ count: 35, suffix: "+", l: "Long-running client relationships", icon: "users" },{ count: 1, ltPrefix: true, suffix: "h", l: "P1 acknowledgement target on retainer", icon: "zap" }].forEach(function (s) { %>
           <div class="flex flex-col justify-between rounded-xl border border-zinc-200 bg-zinc-50 p-5 text-left shadow-sm">
             <i data-feather="<%= s.icon %>" class="h-4 w-4 text-primary/90"></i>
             <div class="mt-4">
-              <p class="text-2xl font-semibold text-primary md:text-3xl"><%= s.n %></p>
+              <p class="js-stat-count text-2xl font-semibold text-primary md:text-3xl" data-count="<%= s.count %>"<% if (s.ltPrefix) { %> data-prefix-lt="1"<% } %><% if (s.suffix !== undefined && s.suffix !== "") { %> data-suffix="<%= s.suffix %>"<% } %>><%= s.ltPrefix ? "<" : "" %>0<%= s.suffix || "" %></p>
               <p class="mt-1 text-xs leading-snug text-zinc-600"><%= s.l %></p>
             </div>
           </div>

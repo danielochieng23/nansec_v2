@@ -113,3 +113,168 @@ html.js .fly-target.is-revealed {
     transition: none;
   }
 }
+
+/* Hero spirals — large Archimedean curves, very slow drift */
+.hero-cyber-spirals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hero-cyber-spiral {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  will-change: transform;
+}
+.hero-cyber-spiral--a {
+  width: min(125vmin, 920px);
+  height: min(125vmin, 920px);
+  right: max(-18%, -8rem);
+  top: 42%;
+  translate: 0 -50%;
+  opacity: 0.38;
+  animation: hero-cyber-spiral-spin 150s linear infinite;
+}
+.hero-cyber-spiral--b {
+  width: min(88vmin, 640px);
+  height: min(88vmin, 640px);
+  left: max(-22%, -10rem);
+  bottom: max(-8%, -4rem);
+  opacity: 0.26;
+  animation: hero-cyber-spiral-spin 96s linear infinite reverse;
+}
+@keyframes hero-cyber-spiral-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Home hero — subtle continuous “security ops” motion */
+.hero-cyber-scan {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hero-cyber-scan::after {
+  content: "";
+  position: absolute;
+  left: -15%;
+  right: -15%;
+  height: 18%;
+  top: -25%;
+  border-radius: 6px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(220, 38, 38, 0.05) 38%,
+    rgba(252, 165, 165, 0.1) 50%,
+    rgba(220, 38, 38, 0.05) 62%,
+    transparent 100%
+  );
+  filter: blur(8px);
+  animation: hero-cyber-scan 7s ease-in-out infinite;
+}
+@keyframes hero-cyber-scan {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(480%);
+    opacity: 0;
+  }
+}
+
+.hero-cyber-blob {
+  animation: hero-cyber-blob 12s ease-in-out infinite;
+}
+.hero-cyber-blob--2 {
+  animation-delay: -5s;
+  animation-duration: 14s;
+}
+@keyframes hero-cyber-blob {
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.hero-cyber-dash path {
+  stroke-dasharray: 1.2 2;
+  animation: hero-cyber-dash 24s linear infinite;
+}
+.hero-cyber-dash path:nth-child(2) {
+  animation-duration: 28s;
+  animation-direction: reverse;
+}
+.hero-cyber-dash path:nth-child(3) {
+  animation-duration: 32s;
+}
+.hero-cyber-dash path:nth-child(4) {
+  animation-duration: 20s;
+  animation-direction: reverse;
+}
+@keyframes hero-cyber-dash {
+  to {
+    stroke-dashoffset: -80;
+  }
+}
+
+.hero-cyber-nodes {
+  animation: hero-cyber-nodes 6s ease-in-out infinite;
+}
+@keyframes hero-cyber-nodes {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.92;
+  }
+}
+
+.mask-linear-fade {
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+.hero-cyber-ticker-track {
+  will-change: transform;
+  animation: hero-cyber-marquee 42s linear infinite;
+}
+@keyframes hero-cyber-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cyber-scan::after,
+  .hero-cyber-blob,
+  .hero-cyber-dash path,
+  .hero-cyber-nodes,
+  .hero-cyber-ticker-track,
+  .hero-cyber-spiral {
+    animation: none !important;
+  }
+  .hero-cyber-blob {
+    opacity: 0.85;
+  }
+  .hero-cyber-spiral--a,
+  .hero-cyber-spiral--b {
+    transform: rotate(18deg);
+    opacity: 0.28;
+  }
+}
