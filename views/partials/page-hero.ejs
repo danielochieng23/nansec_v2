@@ -1,0 +1,23 @@
+<% var _hasImg = typeof heroImage !== 'undefined' && heroImage; var _dark = typeof heroVariant !== 'undefined' && heroVariant === 'dark'; var _h1 = _hasImg ? (_dark ? 'text-white' : 'text-zinc-900') : (_dark ? 'text-white' : 'text-zinc-900'); var _p = _hasImg ? (_dark ? 'text-zinc-300' : 'text-zinc-600') : (_dark ? 'text-zinc-400' : 'text-zinc-600'); var _ht = typeof heroTitle !== 'undefined' ? heroTitle : title; var _hl = typeof heroLead !== 'undefined' ? heroLead : (typeof description !== 'undefined' ? description : ''); %>
+<section class="relative overflow-hidden border-b border-zinc-200 <%= _hasImg ? '' : (_dark ? 'border-zinc-800 bg-gradient-to-b from-zinc-900 to-zinc-950' : 'border-zinc-200 bg-gradient-to-br from-white via-zinc-50 to-zinc-100') %>">
+  <% if (_hasImg) { %>
+  <div class="absolute inset-0 z-0">
+    <img src="<%= heroImage %>" alt="<%= heroImageAlt || '' %>" class="h-full w-full object-cover object-center" <%= typeof heroPriority !== 'undefined' && heroPriority ? 'fetchpriority="high"' : '' %> />
+    <div class="absolute inset-0 <%= _dark ? 'bg-gradient-to-b from-zinc-950/92 via-zinc-950/88 to-zinc-950/90' : 'bg-gradient-to-br from-white/93 via-zinc-50/96 to-zinc-100/93' %>"></div>
+  </div>
+  <% } else if (!_dark) { %>
+  <div class="pointer-events-none absolute inset-0 opacity-60" style="background-image: radial-gradient(circle at 15% 20%, rgba(220,38,38,0.08) 0%, transparent 42%), radial-gradient(circle at 90% 10%, rgba(220,38,38,0.06) 0%, transparent 38%);"></div>
+  <% } else { %>
+  <div class="pointer-events-none absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 20% 20%, rgba(248,113,113,0.35) 0%, transparent 45%), radial-gradient(circle at 85% 10%, rgba(248,113,113,0.2) 0%, transparent 35%);"></div>
+  <% } %>
+
+  <div class="relative z-10 container py-14 md:py-20">
+    <% if (typeof heroEyebrow !== 'undefined' && heroEyebrow) { %>
+    <p class="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-primary"><%= heroEyebrow %></p>
+    <% } %>
+    <h1 class="max-w-4xl text-3xl font-semibold tracking-tight md:text-5xl <%= _h1 %>"><%= _ht %></h1>
+    <% if (_hl) { %>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed md:text-lg <%= _p %>"><%= _hl %></p>
+    <% } %>
+  </div>
+</section>

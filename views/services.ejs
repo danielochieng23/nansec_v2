@@ -1,0 +1,48 @@
+<%- include('partials/head-open') %>
+<%- include('partials/nav') %>
+
+<main class="bg-white">
+  <%- include('partials/page-hero', { heroEyebrow: 'Services', heroTitle: title, heroLead: description, heroImage: siteImages.servicesHero, heroImageAlt: 'Abstract digital layers representing security assessment and defense depth' }) %>
+
+  <% categoriesWithServices.forEach(function (cat, idx) { var bg = idx % 2 === 0 ? 'bg-white' : 'bg-zinc-50'; %>
+  <section id="<%= cat.id %>" class="scroll-mt-28 border-b border-zinc-200 py-16 md:py-20 <%= bg %>">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl font-semibold tracking-tight text-zinc-900 md:text-3xl"><%= cat.title %></h2>
+        <p class="mt-3 text-zinc-600"><%= cat.subtitle %></p>
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <% cat.items.forEach(function (s) { %>
+        <article class="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm transition hover:border-red-200 hover:shadow-md">
+          <div class="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-red-50 blur-2xl transition group-hover:bg-red-100/80"></div>
+          <h3 class="text-xl font-semibold text-zinc-900"><%= s.title %></h3>
+          <p class="mt-3 text-sm leading-relaxed text-zinc-600"><%= s.summary %></p>
+          <ul class="mt-5 space-y-2 text-sm text-zinc-600">
+            <% s.bullets.forEach(function (b) { %>
+            <li class="flex gap-2"><span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary"></span><span><%= b %></span></li>
+            <% }); %>
+          </ul>
+          <div class="mt-8 flex flex-wrap gap-4 text-sm font-semibold">
+            <a href="/services/<%= s.slug %>" class="inline-flex items-center gap-1 text-primary hover:text-red-800">View details →</a>
+            <a href="/contact" class="text-zinc-500 hover:text-primary">Schedule a call</a>
+          </div>
+        </article>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+  <% }); %>
+
+  <section class="border-t border-red-100 bg-gradient-to-r from-red-50 via-white to-red-50 py-14">
+    <div class="container flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+      <div>
+        <h2 class="text-2xl font-semibold text-zinc-900 md:text-3xl">Need multiple workstreams under one steering group?</h2>
+        <p class="mt-2 max-w-xl text-zinc-600">We frequently combine testing cycles, monitoring, and advisory under a single governance rhythm—ask for a sample operating plan.</p>
+      </div>
+      <a href="/contact" class="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white shadow-md shadow-red-200/80 transition hover:bg-red-600">Plan a scoping call</a>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+<%- include('partials/foot-close') %>
