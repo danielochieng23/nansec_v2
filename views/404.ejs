@@ -1,11 +1,21 @@
 <%- include('partials/head-open') %>
 <%- include('partials/nav') %>
 
-<main class="flex min-h-[50vh] flex-col items-center justify-center px-4 py-20 text-center">
-  <p class="text-xs font-semibold uppercase tracking-widest text-primary">404</p>
-  <h1 class="mt-4 text-3xl font-semibold text-zinc-900 md:text-4xl"><%= typeof title !== 'undefined' ? title : 'Page not found' %></h1>
-  <p class="mt-3 max-w-md text-zinc-600">The page you requested does not exist or has moved.</p>
-  <a href="/" class="btn-primary mt-8">Back to home</a>
+<main class="relative min-h-[60vh] overflow-hidden bg-zinc-950">
+  <div class="pointer-events-none absolute inset-0 opacity-40">
+    <img src="<%= siteImages.networkAbstract %>" alt="" class="h-full w-full object-cover object-center" />
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-zinc-950/95 to-zinc-950"></div>
+  <div class="relative flex min-h-[60vh] flex-col items-center justify-center px-4 py-24 text-center">
+    <p class="text-xs font-semibold uppercase tracking-widest text-red-400">404</p>
+    <h1 class="mt-4 max-w-lg text-balance text-3xl font-semibold text-white md:text-4xl"><%= typeof title !== 'undefined' ? title : 'Page not found' %></h1>
+    <p class="mt-4 max-w-md text-zinc-400">The page you requested does not exist or has moved. Try one of the links below or return home.</p>
+    <div class="mt-10 flex flex-wrap justify-center gap-3">
+      <a href="/" class="btn-primary">Back to home</a>
+      <a href="/services" class="inline-flex items-center justify-center rounded-md border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-sm hover:bg-white/10">Services</a>
+      <a href="/contact" class="inline-flex items-center justify-center rounded-md border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-sm hover:bg-white/10">Contact</a>
+    </div>
+  </div>
 </main>
 
 <%- include('partials/footer') %>

@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nangsec Technologies — site
 
-## Getting Started
+Marketing site for Nangsec, built with **Node.js**, **Express**, server-rendered **EJS** templates, and **Tailwind CSS v4** (compiled to static CSS).
 
-First, run the development server:
+## Requirements
+
+- Node.js 18+ (uses `node --watch` in dev; older Node can drop `--watch` or use `nodemon`).
+
+## Install
+
+```bash
+npm install
+```
+
+## Development
+
+Builds Tailwind once, then runs the CSS watcher and the app with file watching:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production
 
- This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Compile CSS and start the server:
 
-## Learn More
+```bash
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+Set `PORT` to override the default port (`3000`):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+PORT=8080 npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Useful scripts
 
-## Deploy on Vercel
+| Script        | Description |
+|---------------|-------------|
+| `npm run dev` | Tailwind watch + Express with `node --watch` |
+| `npm run css` | One-off Tailwind build → `public/css/styles.css` |
+| `npm run css:watch` | Tailwind watch only |
+| `npm start`   | Build CSS then run `server/index.js` |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project layout
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `server/` — Express app (`index.js`), route handlers, and data under `server/data/`.
+- `views/` — EJS pages and `views/partials/` (layout, nav, footer, hero).
+- `tailwind/input.css` — Tailwind entry (`@import "tailwindcss"`, theme tokens, components).
+- `public/` — Static assets; generated styles at `public/css/styles.css`, client JS at `public/js/site.js`.
+
+## Fonts
+
+[Google Sans Flex](https://fonts.google.com/) is loaded via `@fontsource-variable/google-sans-flex` in `tailwind/input.css`.

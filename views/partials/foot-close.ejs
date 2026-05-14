@@ -6,7 +6,7 @@
         nodes.forEach(function (el, i) {
           if (!reduced) {
             el.classList.add("fly-target");
-            el.style.setProperty("--fly-delay", Math.min(i * 48, 420) + "ms");
+            el.style.setProperty("--fly-delay", Math.min(i * 40, 360) + "ms");
           }
         });
         if (reduced) return;
@@ -19,7 +19,7 @@
               }
             });
           },
-          { rootMargin: "0px 0px -6% 0px", threshold: 0.06 },
+          { rootMargin: "0px 0px -4% 0px", threshold: 0.04 },
         );
         nodes.forEach(function (el) {
           if (el.classList.contains("fly-target")) io.observe(el);

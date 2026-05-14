@@ -4,36 +4,84 @@
 <main class="bg-zinc-50">
   <%- include('partials/page-hero', { heroEyebrow: categoryTitle, heroTitle: service.title, heroLead: service.summary, heroImage: siteImages.networkAbstract, heroImageAlt: 'Network graph illustrating attack surface and defensive coverage' }) %>
 
-  <div class="border-b border-zinc-200 bg-zinc-50">
-    <div class="container py-4">
-      <a href="/services" class="inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:text-red-800">← Back to services</a>
+  <div class="relative border-b border-zinc-200 bg-white/95 backdrop-blur-sm">
+    <div class="container flex flex-wrap items-center justify-between gap-4 py-4">
+      <a href="/services" class="inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:text-red-800">← All services</a>
+      <span class="text-xs font-medium uppercase tracking-widest text-zinc-500"><%= categoryTitle %></span>
     </div>
   </div>
 
+  <section class="border-b border-zinc-200 bg-white py-10 md:py-12">
+    <div class="container">
+      <div class="grid gap-6 lg:grid-cols-3">
+        <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
+          <p class="text-xs font-semibold uppercase tracking-widest text-zinc-500">Best for</p>
+          <p class="mt-2 text-sm leading-relaxed text-zinc-700">Teams that need defensible outcomes for product launches, audits, or incident readiness—not a one-off scan disconnected from how you ship.</p>
+        </div>
+        <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
+          <p class="text-xs font-semibold uppercase tracking-widest text-zinc-500">Typical cadence</p>
+          <p class="mt-2 text-sm leading-relaxed text-zinc-700">Kickoff and scope lock in week one; mid-engagement checkpoints; final readouts packaged separately for engineers and leadership.</p>
+        </div>
+        <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
+          <p class="text-xs font-semibold uppercase tracking-widest text-zinc-500">Outputs</p>
+          <p class="mt-2 text-sm leading-relaxed text-zinc-700">Repro steps, severity, remediation guidance, and where useful, sample tickets or control mappings your GRC team can paste into registers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative min-h-[100px] overflow-hidden border-b border-zinc-200 md:min-h-[120px]">
+    <div class="pointer-events-none absolute inset-0 opacity-40">
+      <img src="<%= siteImages.cloudSecurity %>" alt="" class="h-full w-full object-cover object-center" loading="lazy" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-red-50/80"></div>
+  </section>
+
   <section class="border-b border-zinc-200 py-14 md:py-20">
-    <div class="container grid gap-10 lg:grid-cols-12">
-      <div class="lg:col-span-8">
+    <div class="container grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-7">
         <h2 class="text-xl font-semibold text-zinc-900">Deliverables &amp; cadence</h2>
-        <ul class="mt-6 space-y-4">
+        <p class="mt-2 text-sm text-zinc-600">Concrete artifacts and touchpoints your teams can plan around.</p>
+        <ul class="mt-8 space-y-4">
           <% service.bullets.forEach(function (b) { %>
-          <li class="flex gap-3 text-sm leading-relaxed text-zinc-700">
-            <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-100 text-primary">
-              <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+          <li class="flex gap-4 rounded-xl border border-zinc-100 bg-white p-4 text-sm leading-relaxed text-zinc-700 shadow-sm">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-50 text-primary">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </span>
-            <%= b %>
+            <span><%= b %></span>
           </li>
           <% }); %>
         </ul>
-        <div class="mt-10 rounded-2xl border border-zinc-200 bg-white p-6 text-sm leading-relaxed text-zinc-600 shadow-sm">
-          <p>Longer engagements include a standing checkpoint with your technical and risk owners, plus readouts packaged separately for engineering and leadership audiences.</p>
+        <div class="mt-10 rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50 to-white p-6 text-sm leading-relaxed text-zinc-600 shadow-sm md:p-8">
+          <p class="font-medium text-zinc-800">Long-running engagements</p>
+          <p class="mt-2">Include standing checkpoints with your technical and risk owners, plus readouts sized for engineering standups and board briefings. We only recommend adjacent Nangsec services when they clearly reduce open risk.</p>
+        </div>
+        <div class="mt-10">
+          <p class="text-xs font-semibold uppercase tracking-widest text-zinc-500">Explore next</p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="/training" class="rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:border-red-200">Training programs</a>
+            <a href="/research" class="rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:border-red-200">Research &amp; briefs</a>
+            <a href="/resources" class="rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:border-red-200">Resources library</a>
+          </div>
         </div>
       </div>
-      <aside class="lg:col-span-4">
-        <div class="sticky top-28 space-y-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <p class="text-xs font-semibold uppercase tracking-widest text-zinc-500">Start here</p>
-          <p class="text-sm text-zinc-600">Share your constraints—regulated data, hybrid hosting, or an upcoming audit window—and we will align scope and evidence to match.</p>
-          <a href="/contact" class="flex w-full items-center justify-center rounded-md bg-primary py-3 text-sm font-semibold text-white transition hover:bg-red-600">Contact Nangsec</a>
-          <a href="/services" class="block text-center text-sm font-semibold text-primary hover:text-red-800">Explore other capabilities</a>
+      <aside class="lg:col-span-5">
+        <div class="sticky top-28 space-y-5">
+          <div class="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-900 text-zinc-300 shadow-lg">
+            <div class="bg-red-600/90 px-6 py-4">
+              <p class="text-xs font-semibold uppercase tracking-widest text-white/90">Start here</p>
+              <p class="mt-1 text-sm text-red-100">Tell us about assets, compliance drivers, and release windows.</p>
+            </div>
+            <div class="space-y-4 p-6">
+              <p class="text-sm">Share regulated data zones, hybrid hosting, or an upcoming audit— we align scope and evidence to match.</p>
+              <a href="/contact" class="flex w-full items-center justify-center rounded-md bg-white py-3 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-100">Contact Nangsec</a>
+              <a href="/services" class="block text-center text-sm font-semibold text-red-300 hover:text-white">Compare other capabilities →</a>
+            </div>
+          </div>
+          <div class="rounded-2xl border border-dashed border-zinc-300 bg-white p-5 text-sm text-zinc-600">
+            <p class="font-medium text-zinc-800">Response expectations</p>
+            <p class="mt-2">For retainer clients, we target acknowledgement of priority incidents within agreed SLAs. New engagements usually receive a scoping reply within one business day.</p>
+          </div>
         </div>
       </aside>
     </div>

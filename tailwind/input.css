@@ -47,6 +47,11 @@ body {
   color: var(--foreground);
 }
 
+/* Slight global bump — scales text-sm, text-base, headings, etc. */
+html {
+  font-size: 106.25%;
+}
+
 @layer utilities {
   .ring-offset-background {
     --tw-ring-offset-color: var(--background);
@@ -81,13 +86,14 @@ body {
   @apply inline-flex items-center justify-center rounded-md border border-white/25 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/10;
 }
 
-/* Scroll / load fly-in (enabled when .fly-target is applied via JS) */
+/* Scroll / load fly-in — smooth ease-out, gentle travel */
 html.js .fly-target {
   opacity: 0;
-  transform: translate3d(0, 1.75rem, 0);
+  transform: translate3d(0, 1.125rem, 0);
+  backface-visibility: hidden;
   transition:
-    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--fly-delay, 0ms),
-    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--fly-delay, 0ms);
+    opacity 0.88s cubic-bezier(0.16, 1, 0.3, 1) var(--fly-delay, 0ms),
+    transform 0.88s cubic-bezier(0.16, 1, 0.3, 1) var(--fly-delay, 0ms);
 }
 
 html.js .fly-target.is-revealed {
