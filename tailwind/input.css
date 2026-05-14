@@ -80,3 +80,25 @@ body {
 .btn-outline-hero {
   @apply inline-flex items-center justify-center rounded-md border border-white/25 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/10;
 }
+
+/* Scroll / load fly-in (enabled when .fly-target is applied via JS) */
+html.js .fly-target {
+  opacity: 0;
+  transform: translate3d(0, 1.75rem, 0);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--fly-delay, 0ms),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--fly-delay, 0ms);
+}
+
+html.js .fly-target.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .fly-target {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

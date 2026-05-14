@@ -1,3 +1,31 @@
+    <script>
+      document.documentElement.classList.add("js");
+      (function () {
+        var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var nodes = document.querySelectorAll("header, main > *, footer");
+        nodes.forEach(function (el, i) {
+          if (!reduced) {
+            el.classList.add("fly-target");
+            el.style.setProperty("--fly-delay", Math.min(i * 48, 420) + "ms");
+          }
+        });
+        if (reduced) return;
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-revealed");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -6% 0px", threshold: 0.06 },
+        );
+        nodes.forEach(function (el) {
+          if (el.classList.contains("fly-target")) io.observe(el);
+        });
+      })();
+    </script>
     <script src="/js/site.js" defer></script>
   </body>
 </html>
