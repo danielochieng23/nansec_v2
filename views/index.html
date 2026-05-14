@@ -260,48 +260,13 @@
       </div>
       <div class="mt-12 grid gap-6 md:grid-cols-3">
         <% [{ t: "Depth you can verify", d: "Named engineers on your statements of work, written methodologies, and sample redacted reports before kickoff.", icon: "eye" },{ t: "Grounded in live environments", d: "Recommendations are filtered through what actually runs in your cloud, data center, and vendor ecosystem.", icon: "server" },{ t: "Steady communication", d: "Structured updates for technical owners, risk teams, and executives—without burying anyone in jargon.", icon: "message-circle" }].forEach(function (b) { %>
-        <div class="rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm">
-          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-red-50 text-primary">
+        <div class="rounded-2xl border border-red-700 bg-red-600 p-8 shadow-lg shadow-red-950/20">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/15 text-white">
             <i data-feather="<%= b.icon %>" class="h-5 w-5"></i>
           </div>
-          <h3 class="text-lg font-semibold text-zinc-900"><%= b.t %></h3>
-          <p class="mt-3 text-sm leading-relaxed text-zinc-600"><%= b.d %></p>
+          <h3 class="text-lg font-semibold text-white"><%= b.t %></h3>
+          <p class="mt-3 text-sm leading-relaxed text-red-100"><%= b.d %></p>
         </div>
-        <% }); %>
-      </div>
-    </div>
-  </section>
-
-  <section class="border-t border-zinc-200 bg-zinc-50 py-16 md:py-24">
-    <div class="container">
-      <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-        <div>
-          <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">
-            <i data-feather="book" class="h-4 w-4 text-primary/80"></i>
-            Library
-          </p>
-          <h2 class="mt-2 text-3xl font-semibold text-zinc-900">Fresh writing from our consultants</h2>
-          <p class="mt-2 text-zinc-600">Short articles you can forward to engineering and risk peers.</p>
-        </div>
-        <a href="/research" class="inline-flex items-center gap-2 font-semibold text-primary hover:text-red-700"><i data-feather="arrow-up-right" class="h-4 w-4"></i>View research</a>
-      </div>
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
-        <% const posts = [
-          { tag: "Architecture", title: "Layering controls on high-volume APIs", ex: "Rate limits, auth patterns, and abuse detection that survive real traffic.", img: siteImages.cloudSecurity },
-          { tag: "Detection", title: "Signal-to-noise in busy SOCs", ex: "Practical triage tweaks our analysts use to protect margin without hiding critical alerts.", img: siteImages.socOperations },
-          { tag: "Leadership", title: "Questions boards should ask after a test", ex: "A concise checklist to turn assessment output into funded remediation.", img: siteImages.resourcesDocs },
-        ]; %>
-        <% posts.forEach(function (post) { %>
-        <article class="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
-          <div class="relative aspect-[16/10] w-full">
-            <img src="<%= post.img %>" alt="" class="h-full w-full object-cover" loading="lazy" />
-          </div>
-          <div class="p-7">
-            <p class="text-xs font-semibold uppercase tracking-widest text-primary"><%= post.tag %></p>
-            <h3 class="mt-2 text-lg font-semibold text-zinc-900"><%= post.title %></h3>
-            <p class="mt-2 text-sm text-zinc-600"><%= post.ex %></p>
-          </div>
-        </article>
         <% }); %>
       </div>
     </div>
