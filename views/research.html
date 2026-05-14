@@ -1,8 +1,8 @@
-<%- include('partials/head-open') %>
-<%- include('partials/nav') %>
+<%- include('partials/head-open.html') %>
+<%- include('partials/nav.html') %>
 
 <main class="bg-zinc-50">
-  <%- include('partials/page-hero', { heroEyebrow: 'Research', heroTitle: title, heroLead: description, heroImage: siteImages.researchDesk, heroImageAlt: 'Researcher analyzing security data and preparing technical notes' }) %>
+  <%- include('partials/page-hero.html', { heroEyebrow: 'Research', heroTitle: title, heroLead: description, heroImage: siteImages.researchDesk, heroImageAlt: 'Researcher analyzing security data and preparing technical notes' }) %>
 
   <section class="border-b border-zinc-900 bg-zinc-950 py-12 text-zinc-300">
     <div class="container grid gap-10 lg:grid-cols-2 lg:items-center">
@@ -84,5 +84,5 @@
   </section>
 </main>
 
-<%- include('partials/footer') %>
-<%- include('partials/foot-close') %>
+<%- include('partials/footer.html') %>
+<%- include('partials/foot-close.html') %>

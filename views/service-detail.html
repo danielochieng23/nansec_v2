@@ -1,8 +1,8 @@
-<%- include('partials/head-open') %>
-<%- include('partials/nav') %>
+<%- include('partials/head-open.html') %>
+<%- include('partials/nav.html') %>
 
 <main class="bg-zinc-50">
-  <%- include('partials/page-hero', { heroEyebrow: categoryTitle, heroTitle: service.title, heroLead: service.summary, heroImage: siteImages.networkAbstract, heroImageAlt: 'Network graph illustrating attack surface and defensive coverage' }) %>
+  <%- include('partials/page-hero.html', { heroEyebrow: categoryTitle, heroTitle: service.title, heroLead: service.summary, heroImage: siteImages.networkAbstract, heroImageAlt: 'Network graph illustrating attack surface and defensive coverage' }) %>
 
   <div class="relative border-b border-zinc-200 bg-white/95 backdrop-blur-sm">
     <div class="container flex flex-wrap items-center justify-between gap-4 py-4">
@@ -70,7 +70,7 @@
           <div class="mt-4 flex flex-wrap gap-3">
             <a href="/training" class="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:border-red-200"><i data-feather="book-open" class="h-4 w-4 text-primary/90"></i>Training programs</a>
             <a href="/research" class="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:border-red-200"><i data-feather="file-text" class="h-4 w-4 text-primary/90"></i>Research &amp; briefs</a>
-            <a href="/resources" class="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:border-red-200"><i data-feather="folder" class="h-4 w-4 text-primary/90"></i>Resources library</a>
+            <a href="/about" class="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:border-red-200"><i data-feather="users" class="h-4 w-4 text-primary/90"></i>About Nangsec</a>
           </div>
         </div>
       </div>
@@ -97,5 +97,5 @@
   </section>
 </main>
 
-<%- include('partials/footer') %>
-<%- include('partials/foot-close') %>
+<%- include('partials/footer.html') %>
+<%- include('partials/foot-close.html') %>

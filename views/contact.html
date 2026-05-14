@@ -1,8 +1,8 @@
-<%- include('partials/head-open') %>
-<%- include('partials/nav') %>
+<%- include('partials/head-open.html') %>
+<%- include('partials/nav.html') %>
 
 <main class="bg-zinc-50">
-  <%- include('partials/page-hero', { heroEyebrow: heroEyebrow, heroTitle: heroTitle, heroLead: heroLead, heroImage: siteImages.contactOffice, heroImageAlt: 'Professional office environment for client consultations' }) %>
+  <%- include('partials/page-hero.html', { heroEyebrow: heroEyebrow, heroTitle: heroTitle, heroLead: heroLead, heroImage: siteImages.contactOffice, heroImageAlt: 'Professional office environment for client consultations' }) %>
 
   <section class="border-b border-zinc-200 bg-white">
     <div class="container grid gap-10 py-12 md:grid-cols-2 md:items-stretch md:py-14">
@@ -87,12 +87,12 @@
         </div>
         <div class="rounded-2xl border border-dashed border-zinc-300 bg-white p-6 text-sm text-zinc-600">
           <p class="font-medium text-zinc-900">Looking for something specific?</p>
-          <p class="mt-2">Browse <a href="/services" class="font-semibold text-primary hover:text-red-800">services</a>, <a href="/training" class="font-semibold text-primary hover:text-red-800">training</a>, or <a href="/resources" class="font-semibold text-primary hover:text-red-800">resources</a> first—then tell us which offering fits.</p>
+          <p class="mt-2">Browse <a href="/services" class="font-semibold text-primary hover:text-red-800">services</a>, <a href="/training" class="font-semibold text-primary hover:text-red-800">training</a>, or <a href="/research" class="font-semibold text-primary hover:text-red-800">research</a> first—then tell us which offering fits.</p>
         </div>
       </aside>
     </div>
   </section>
 </main>
 
-<%- include('partials/footer') %>
-<%- include('partials/foot-close') %>
+<%- include('partials/footer.html') %>
+<%- include('partials/foot-close.html') %>

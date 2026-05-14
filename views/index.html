@@ -1,8 +1,8 @@
-<%- include('partials/head-open') %>
-<%- include('partials/nav') %>
+<%- include('partials/head-open.html') %>
+<%- include('partials/nav.html') %>
 
 <main>
-  <%- include('partials/home-hero') %>
+  <%- include('partials/home-hero.html') %>
 
   <section class="border-b border-red-100 bg-gradient-to-b from-red-50/80 to-white py-14 md:py-16">
     <div class="container">
@@ -119,7 +119,7 @@
           </p>
           <h2 class="mt-2 text-2xl font-semibold text-zinc-900 md:text-3xl">Teams that treat security as infrastructure, not a slide deck</h2>
         </div>
-        <a href="/company" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-red-700"><i data-feather="chevron-right" class="h-4 w-4"></i>Learn about our work</a>
+        <a href="/about" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-red-700"><i data-feather="chevron-right" class="h-4 w-4"></i>Learn about our work</a>
       </div>
       <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
         <% for (let i = 0; i < 6; i++) { %>
@@ -279,7 +279,7 @@
           <h2 class="mt-2 text-3xl font-semibold text-zinc-900">Fresh writing from our consultants</h2>
           <p class="mt-2 text-zinc-600">Short articles you can forward to engineering and risk peers.</p>
         </div>
-        <a href="/resources" class="inline-flex items-center gap-2 font-semibold text-primary hover:text-red-700"><i data-feather="arrow-up-right" class="h-4 w-4"></i>Open resources</a>
+        <a href="/research" class="inline-flex items-center gap-2 font-semibold text-primary hover:text-red-700"><i data-feather="arrow-up-right" class="h-4 w-4"></i>View research</a>
       </div>
       <div class="mt-10 grid gap-6 md:grid-cols-3">
         <% const posts = [
@@ -335,5 +335,5 @@
   </section>
 </main>
 
-<%- include('partials/footer') %>
-<%- include('partials/foot-close') %>
+<%- include('partials/footer.html') %>
+<%- include('partials/foot-close.html') %>

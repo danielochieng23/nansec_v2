@@ -1,8 +1,8 @@
-<%- include('partials/head-open') %>
-<%- include('partials/nav') %>
+<%- include('partials/head-open.html') %>
+<%- include('partials/nav.html') %>
 
 <main class="bg-zinc-50">
-  <%- include('partials/page-hero', { heroEyebrow: 'Services', heroTitle: title, heroLead: description, heroImage: siteImages.servicesHero, heroImageAlt: 'Abstract digital layers representing security assessment and defense depth' }) %>
+  <%- include('partials/page-hero.html', { heroEyebrow: 'Services', heroTitle: title, heroLead: description, heroImage: siteImages.servicesHero, heroImageAlt: 'Abstract digital layers representing security assessment and defense depth' }) %>
 
   <section class="relative border-b border-zinc-800 bg-zinc-950 py-14 md:py-16">
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-20%,rgba(220,38,38,0.15),transparent_55%)]"></div>
@@ -97,5 +97,5 @@
   </section>
 </main>
 
-<%- include('partials/footer') %>
-<%- include('partials/foot-close') %>
+<%- include('partials/footer.html') %>
+<%- include('partials/foot-close.html') %>

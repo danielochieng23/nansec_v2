@@ -1,8 +1,8 @@
-<%- include('partials/head-open') %>
-<%- include('partials/nav') %>
+<%- include('partials/head-open.html') %>
+<%- include('partials/nav.html') %>
 
 <main class="bg-zinc-50">
-  <%- include('partials/page-hero', { heroEyebrow: 'Company', heroTitle: title, heroLead: description, heroImage: siteImages.companyTeam, heroImageAlt: 'Security and technology team collaborating on priorities' }) %>
+  <%- include('partials/page-hero.html', { heroEyebrow: 'About', heroTitle: title, heroLead: description, heroImage: siteImages.companyTeam, heroImageAlt: 'Security and technology team collaborating on priorities' }) %>
 
   <section class="border-b border-zinc-200 bg-white py-14">
     <div class="container">
@@ -81,5 +81,5 @@
   </section>
 </main>
 
-<%- include('partials/footer') %>
-<%- include('partials/foot-close') %>
+<%- include('partials/footer.html') %>
+<%- include('partials/foot-close.html') %>

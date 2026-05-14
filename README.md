@@ -1,6 +1,6 @@
 # Nangsec Technologies — site
 
-Marketing site for Nangsec, built with **Node.js**, **Express**, server-rendered **EJS** templates, and **Tailwind CSS v4** (compiled to static CSS).
+Marketing site for Nangsec, built with **Node.js**, **Express**, server-rendered **HTML templates** (EJS syntax in `.html` files), and **Tailwind CSS v4** (compiled to static CSS).
 
 ## Requirements
 
@@ -48,7 +48,7 @@ PORT=8080 npm start
 ## Project layout
 
 - `server/` — Express app (`index.js`), route handlers, and data under `server/data/`.
-- `views/` — EJS pages and `views/partials/` (layout, nav, footer, hero).
+- `views/` — HTML page templates (`*.html`) and `views/partials/` (layout, nav, footer, hero). Files use EJS tags (`<%`, `<%=`) for includes and dynamic data.
 - `tailwind/input.css` — Tailwind entry (`@import "tailwindcss"`, theme tokens, components).
 - `public/` — Static assets; generated styles at `public/css/styles.css`, client JS at `public/js/site.js`.
 

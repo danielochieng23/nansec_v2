@@ -1,7 +1,7 @@
 @import "@fontsource-variable/google-sans-flex";
 @import "tailwindcss";
 
-@source "../views/**/*.ejs";
+@source "../views/**/*.html";
 
 :root {
   --background: #fafafa;

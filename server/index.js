@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import ejs from "ejs";
 import { fileURLToPath } from "url";
 import { siteImages } from "./data/site-images.js";
 import { serviceCategories, services, categoryForSlug, servicesInCategory } from "./data/services.js";
@@ -9,7 +10,8 @@ const root = path.join(__dirname, "..");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.set("view engine", "ejs");
+app.engine("html", ejs.renderFile);
+app.set("view engine", "html");
 app.set("views", path.join(root, "views"));
 
 app.use(express.static(path.join(root, "public")));
@@ -74,18 +76,20 @@ app.get("/research", (req, res) => {
   });
 });
 
-app.get("/resources", (req, res) => {
-  res.render("resources", {
-    title: "Resources",
-    description: "Reference material for engineering and risk.",
+app.get("/about", (req, res) => {
+  res.render("about", {
+    metaTitle: "About | Nangsec Technologies",
+    title: "About",
+    description: "A practitioner-led firm with hubs across West and East Africa.",
   });
 });
 
 app.get("/company", (req, res) => {
-  res.render("company", {
-    title: "Company",
-    description: "A practitioner-led firm with hubs across West and East Africa.",
-  });
+  res.redirect(301, "/about");
+});
+
+app.get("/resources", (req, res) => {
+  res.redirect(301, "/research");
 });
 
 app.get("/contact", (req, res) => {
