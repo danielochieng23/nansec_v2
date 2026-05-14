@@ -4,6 +4,25 @@
 <main>
   <%- include('partials/home-hero') %>
 
+  <section class="border-b border-red-100 bg-gradient-to-b from-red-50/80 to-white py-14">
+    <div class="container">
+      <div class="grid gap-8 md:grid-cols-4 text-center md:text-left">
+        <% [{ n: "120+", l: "Completed assessments & remediation programs" },{ n: "35+", l: "Organizations with long-running engagements" },{ n: "<1h", l: "Target acknowledgement for P1 incidents on retainer" },{ n: "3", l: "Regional hubs supporting delivery and training" }].forEach(function (s) { %>
+        <div>
+          <p class="text-4xl font-semibold tracking-tight text-primary md:text-5xl"><%= s.n %></p>
+          <p class="mt-2 text-sm text-zinc-600"><%= s.l %></p>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-zinc-200 bg-white py-4" aria-label="Practice positioning">
+    <div class="container text-center">
+      <p class="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Pan-African cybersecurity practice</p>
+    </div>
+  </section>
+
   <section class="border-b border-zinc-200 bg-zinc-50 py-16 md:py-24">
     <div class="container">
       <div class="mx-auto max-w-3xl text-center">
@@ -51,19 +70,6 @@
         <% for (let i = 0; i < 6; i++) { %>
         <div class="flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-4 py-6 text-xs font-semibold uppercase tracking-widest text-zinc-400 shadow-sm">Partner</div>
         <% } %>
-      </div>
-    </div>
-  </section>
-
-  <section class="border-b border-red-100 bg-gradient-to-b from-red-50/80 to-white py-14">
-    <div class="container">
-      <div class="grid gap-8 md:grid-cols-4 text-center md:text-left">
-        <% [{ n: "120+", l: "Completed assessments & remediation programs" },{ n: "35+", l: "Organizations with long-running engagements" },{ n: "<1h", l: "Target acknowledgement for P1 incidents on retainer" },{ n: "3", l: "Regional hubs supporting delivery and training" }].forEach(function (s) { %>
-        <div>
-          <p class="text-4xl font-semibold tracking-tight text-primary md:text-5xl"><%= s.n %></p>
-          <p class="mt-2 text-sm text-zinc-600"><%= s.l %></p>
-        </div>
-        <% }); %>
       </div>
     </div>
   </section>
