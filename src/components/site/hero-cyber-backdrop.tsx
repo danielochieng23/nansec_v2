@@ -1,0 +1,51 @@
+/** Decorative cybersecurity-style backdrop for the home hero (SVG network + shield watermark + fade into page). */
+export function HeroCyberBackdrop() {
+  return (
+    <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden" aria-hidden>
+      <div className="absolute -left-1/4 top-0 h-[min(480px,70vw)] w-[75%] rounded-full bg-red-600/25 blur-[130px]" />
+      <div className="absolute -right-[20%] top-1/3 h-[min(400px,55vw)] w-[55%] rounded-full bg-red-900/25 blur-[110px]" />
+
+      <svg
+        className="absolute inset-0 h-full w-full opacity-[0.5]"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="heroCyberLine" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#f87171" stopOpacity="0.12" />
+            <stop offset="45%" stopColor="#ffffff" stopOpacity="0.22" />
+            <stop offset="100%" stopColor="#fca5a5" stopOpacity="0.1" />
+          </linearGradient>
+        </defs>
+        <g stroke="url(#heroCyberLine)" strokeWidth="0.12" fill="none" vectorEffect="non-scaling-stroke">
+          <path d="M5 58 Q25 35 38 52 T 55 32 Q70 40 82 36 T 95 42" />
+          <path d="M8 75 Q28 62 45 70 T 62 58 Q78 65 92 48" />
+          <path d="M12 25 Q32 18 48 32 T 72 24 Q85 38 94 44" />
+          <path d="M18 85 Q40 78 58 88 Q72 82 88 76" />
+        </g>
+        <g fill="#fecaca" opacity="0.85">
+          <circle cx="5" cy="58" r="0.55" />
+          <circle cx="38" cy="52" r="0.45" />
+          <circle cx="55" cy="32" r="0.65" className="fill-white" />
+          <circle cx="82" cy="36" r="0.45" />
+          <circle cx="8" cy="75" r="0.45" />
+          <circle cx="45" cy="70" r="0.45" />
+          <circle cx="62" cy="58" r="0.55" />
+          <circle cx="48" cy="32" r="0.4" />
+          <circle cx="72" cy="24" r="0.45" />
+        </g>
+      </svg>
+
+      <svg
+        className="absolute bottom-0 right-4 h-56 w-56 text-white/[0.06] md:right-16 md:h-80 md:w-80"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+      </svg>
+
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white via-white/90 to-transparent" />
+    </div>
+  );
+}

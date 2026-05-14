@@ -1,24 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0f14; /* deep blue-black */
-  --foreground: #e6e7e9;
-  --muted: #121821;
-  --muted-foreground: #9aa3ad;
-  --card: #0c1218;
-  --card-foreground: #e6e7e9;
-  --border: #1e2833;
-  --input: #1e2833;
-  --ring: #f2b400; /* gold ring */
+  --background: #fafafa;
+  --foreground: #18181b;
 
-  --primary: #f2b400; /* warm gold */
-  --primary-foreground: #101418;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
 
-  --secondary: #0f3b57; /* deep blue */
-  --secondary-foreground: #e6e7e9;
+  --card: #ffffff;
+  --card-foreground: #18181b;
 
-  --accent: #b02a2a; /* warm red */
-  --accent-foreground: #fff6e5;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #dc2626;
+
+  --primary: #dc2626;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+
+  --accent: #fef2f2;
+  --accent-foreground: #b91c1c;
 }
 
 @theme inline {
@@ -37,16 +40,19 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
-    Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji",
-    "Segoe UI Emoji";
+}
+
+@layer utilities {
+  .ring-offset-background {
+    --tw-ring-offset-color: var(--background);
+  }
 }
 
 .container {
@@ -56,4 +62,25 @@ body {
   padding-left: 1rem;
   padding-right: 1rem;
   max-width: 1200px;
+}
+
+/* Light grid for hero / banded sections */
+.bg-grid-light {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #ffffff),
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: auto, 56px 56px, 56px 56px;
+  background-position: center top;
+}
+
+/* Home hero: dark cyber band + grid + red glow (content sits above via z-index) */
+.hero-cyber {
+  background-color: #030303;
+  background-image:
+    radial-gradient(ellipse 100% 70% at 50% -12%, rgba(220, 38, 38, 0.34), transparent 55%),
+    radial-gradient(ellipse 50% 42% at 92% 12%, rgba(220, 38, 38, 0.16), transparent 52%),
+    linear-gradient(rgba(255, 255, 255, 0.034) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.034) 1px, transparent 1px),
+    linear-gradient(188deg, #0c0c0f 0%, #050506 38%, #020202 100%);
+  background-size: auto, auto, 76px 76px, 76px 76px, auto;
 }

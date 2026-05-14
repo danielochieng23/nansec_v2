@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     console.log("Contact message:", data);
 
     return NextResponse.json({ ok: true }, { status: 200 });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { ok: false, error: "Server error" },
       { status: 500 }
