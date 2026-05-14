@@ -56,6 +56,11 @@ html {
   .ring-offset-background {
     --tw-ring-offset-color: var(--background);
   }
+
+  /* Feather replaces <i data-feather> with <svg class="feather ..."> — keep stroke crisp at small sizes */
+  svg.feather {
+    flex-shrink: 0;
+  }
 }
 
 .container {
